@@ -1,0 +1,31 @@
+<div class="review-controls" *ngIf="advertList.length">
+  <div class="arrow arrow-left">
+    <i class="fa fa-arrow-left"></i>
+  </div>
+  <span>Displaying advert {{ currentAdvertNumber }} of {{advertList.length}}</span>
+  <div class="arrow arrow-right">
+    <i class="fa fa-arrow-right"></i>
+  </div>
+</div>
+<div *ngIf="!currentAdvert()" class="loader">
+  <p>Loading advert data</p>
+  <div class="table">
+    <div class="cell">
+      <div class="gmb-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="currentAdvert()">
+  <div class="status-controls">
+    <button (click)="setPassStatus(true)">Pass</button>
+    <button (click)="setPassStatus(false)">Fail</button>
+  </div>
+  <h1>{{currentAdvert().ref}}: {{currentAdvert().title}}</h1>
+  <div [innerHTML]="currentAdvert().description"></div>
+</div>
+

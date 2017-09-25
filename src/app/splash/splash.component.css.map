@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACJ,UAAU,EAAC,MAAM",
+"sources": ["splash.component.scss"],
+"names": [],
+"file": "splash.component.css"
+}

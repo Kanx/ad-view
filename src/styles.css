@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  font-family: "RN House Sans", "RNHouseSans", calibri, arial, sans-serif; }
+
+body {
+  background: #eee;
+  margin: 10px auto;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: 100; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; }
+
+p, ul, ol {
+  font-weight: 100; }
+
+.loader {
+  text-align: center;
+  margin: auto; }
+  .loader p {
+    color: #838386;
+    margin-bottom: 20px; }
+
+button, input[type=submit] {
+  border: 0;
+  padding: 13px 20px;
+  cursor: pointer;
+  line-height: 1.1;
+  color: white;
+  background: #1f9baa;
+  font-size: 1.1rem; }
+  button:disabled, input[type=submit]:disabled {
+    cursor: not-allowed;
+    color: #bdbdbd;
+    background: #eee; }
+
+input[type=text], textarea {
+  border: #fdfdfd;
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  background: whitesmoke;
+  display: block;
+  box-sizing: border-box;
+  width: 100%; }
+  input[type=text]::placeholder, textarea::placeholder {
+    color: #d5d5d5; }
+
+/*# sourceMappingURL=styles.css.map */
