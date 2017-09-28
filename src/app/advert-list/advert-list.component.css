@@ -1,0 +1,88 @@
+:host {
+  width: 98%;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  transition: all 0.5s;
+  position: sticky;
+  top: 100px; }
+  :host.description-active {
+    width: 25%;
+    margin-right: 3%;
+    display: inline-block; }
+    :host.description-active .title, :host.description-active .opened, :host.description-active .closes {
+      display: none; }
+    :host.description-active .ref {
+      width: 70%; }
+    :host.description-active .status {
+      width: 20%; }
+
+.advert-list {
+  border-radius: 2px;
+  border: 1px solid #eee; }
+  .advert-list-item {
+    cursor: pointer;
+    transition: font-size 0.2s;
+    width: 100%;
+    font-size: 0.9rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    color: #727272; }
+    .advert-list-item.header {
+      font-weight: 500;
+      background: #f0f0f0; }
+      .advert-list-item.header > div {
+        font-size: 1rem; }
+    .advert-list-item.active {
+      color: #0c2f61;
+      font-weight: 500; }
+    .advert-list-item:not(:last-child) {
+      border-bottom: 1px solid #eee; }
+    .advert-list-item-data {
+      display: inline-block;
+      line-height: 2rem; }
+      .advert-list-item-data i.fa {
+        font-size: 0.9rem; }
+    .advert-list-item.not-found {
+      cursor: not-allowed;
+      background: #ff9e95; }
+      .advert-list-item.not-found .fa {
+        color: #950d00; }
+    .advert-list-item.passed {
+      background: #dcebbe; }
+      .advert-list-item.passed .fa {
+        color: #465b1c; }
+    .advert-list-item.failed {
+      background: #fde9c8; }
+      .advert-list-item.failed .fa {
+        color: #8d5b06; }
+
+.ref {
+  width: 15%; }
+
+.title {
+  width: 40%; }
+
+.opened {
+  width: 15%; }
+
+.closes {
+  width: 15%; }
+
+.status {
+  text-align: right;
+  width: 10%; }
+
+.detail-toggle {
+  position: absolute;
+  right: -18px;
+  top: 9px;
+  border-radius: 100%;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  background: #1fb3b9; }
+
+/*# sourceMappingURL=advert-list.component.css.map */

@@ -1,17 +1,17 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdvertService } from '../advert.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-splash',
-  templateUrl: './splash.component.html',
-  styleUrls: ['./splash.component.scss']
+  selector: 'app-launch-bar',
+  templateUrl: './launch-bar.component.html',
+  styleUrls: ['./launch-bar.component.scss']
 })
-export class SplashComponent implements OnInit {
-  references: string;
-  website: string;
-  referencesForm: FormGroup;
+export class LaunchBarComponent implements OnInit {
 
+  references = '';
+  website = 'jobs';
+  referencesForm: FormGroup;
 
   constructor(private advertService: AdvertService) {}
 
@@ -20,7 +20,7 @@ export class SplashComponent implements OnInit {
       references: new FormControl(this.references, [
         Validators.required,
         Validators.minLength(5),
-        Validators.pattern(/([0-9]{5})+?/) // TODO - Improve logic to match longer strings
+        Validators.pattern(/([0-9]{5})+?/) // TODO - Improve logic to match longer strings; consider negative lookahead
       ]),
       website: new FormControl(this.website, [
         Validators.required
@@ -28,12 +28,8 @@ export class SplashComponent implements OnInit {
     });
   }
 
-  onSubmit = () => {
-    this.advertService.initiateReview(this.references, 'jobs');
-  }
-
-  test() {
-    console.log(this.advertService.getAdverts());
+  onSubmit() {
+    this.advertService.initiateReview(this.references, this.website);
   }
 
   get referenceField() { return this.referencesForm.get('references'); }

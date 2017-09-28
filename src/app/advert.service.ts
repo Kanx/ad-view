@@ -9,21 +9,22 @@ import { Advert } from './shared/advert.interface';
 export class AdvertService {
   private _advertData = new BehaviorSubject<Advert[]>([]);
 
+  referenceRequestList: Array<string>;
   reviewInitiated = false;
   advertArray = this._advertData.asObservable();
-
   targetSite = 'jobs';
 
   constructor(private http: Http, private router: Router) {}
 
   parseReferenceString(referenceString: string): Array<any> {
-    return referenceString.split(' ');
+    return referenceString.split(/[\s|\r]/g);
   }
 
   fetchAdvert(reference: string): void {
     this.http.get(`${environment.apiURL}/adverts/${this.targetSite}/${reference}`).subscribe(data => {
       const payload = data.json();
-      payload.passed = null;
+      // Assign entry with local ID
+      payload.id = this._advertData.getValue().length + 1 || 1;
       this.addAdvert(payload);
     });
   }
@@ -31,10 +32,11 @@ export class AdvertService {
   initiateReview(referenceString: string, website: string): void {
     this.targetSite = website;
     this.clearAdverts();
-    const referenceMap = this.parseReferenceString(referenceString);
-    if (referenceMap.length > 0) {
+    this.referenceRequestList = this.parseReferenceString(referenceString);
+
+    if (this.referenceRequestList.length  > 0) {
       this.reviewInitiated = true;
-      referenceMap.forEach(ref => {
+      this.referenceRequestList.forEach(ref => {
         this.fetchAdvert(ref);
       });
       this.router.navigate(['/review', 1]);

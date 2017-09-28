@@ -1,0 +1,22 @@
+<header>
+  <div class="app-title">Ad-view <small>by CAET</small></div>
+  <form [formGroup]="referencesForm">
+    <div class="reference-field">
+      <input    name="references"
+                id="references"
+                [(ngModel)]="references"
+                formControlName="references"
+                type="text"
+                placeholder="Paste TAM IDs separated by a space, e.g. 12345 65321"
+      >
+    </div>
+    <div class="form-icon form-icon-arrow site-selector">
+      <select formControlName="website" [(ngModel)]="website" name="website" id="website">
+        <option [value]="'jobs'">RBS</option>
+        <option [value]="'mycareer'">myCareer</option>
+        <option [value]="'redeployment.jobs'">Redeployment</option>
+      </select>
+    </div>
+    <button [disabled]="!referencesForm.valid" type="submit" (click)="onSubmit()" class="init-review"><i class="fa fa-search"></i></button>
+  </form>
+</header>

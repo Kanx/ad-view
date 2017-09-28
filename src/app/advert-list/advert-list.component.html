@@ -1,0 +1,52 @@
+<div class="advert-list">
+  <button class="detail-toggle fa fa-bars" (click)="toggleDescription()"></button>
+  <div class="advert-list-item header" >
+    <div class="advert-list-item-data ref">
+      Ref
+    </div>
+    <div class="advert-list-item-data title">
+      Title
+    </div>
+    <div class="advert-list-item-data opened">
+      Posted
+    </div>
+    <div class="advert-list-item-data closes">
+      Closes
+    </div>
+    <div class="advert-list-item-data status">
+      Status
+    </div>
+  </div>
+  <div class="advert-list-item"
+       *ngFor="let advert of adverts"
+       (click)="navigateToAdvert(advert.id, advert.status)"
+       [ngClass]="{
+         'not-found': advert.status === -1,
+         'found': advert.status === 0,
+         'passed': advert.status === 1,
+         'failed': advert.status === 2,
+         'active': advert.id === currentAdvert
+       }"
+      >
+      <div class="advert-list-item-data ref">
+        {{advert.ref}}
+      </div>
+      <div class="advert-list-item-data title">
+        {{advert.title}}
+      </div>
+      <div class="advert-list-item-data opened">
+        {{advert.posted}}
+      </div>
+      <div class="advert-list-item-data closes">
+        {{advert.closes}}
+      </div>
+      <div class="advert-list-item-data status" >
+        <i *ngIf="advert.status === -1" class="fa fa-exclamation-triangle"></i>
+        <i *ngIf="advert.status ===  0" class="fa fa-square-o"></i>
+        <i *ngIf="advert.status ===  1" class="fa fa-check-square-o"></i>
+        <i *ngIf="advert.status ===  2" class="fa fa-times"></i>
+      </div>
+  </div>
+</div>
+
+<app-loader [size]="'small'" *ngIf="!advertsLoaded"></app-loader>

@@ -1,0 +1,39 @@
+:host {
+  width: 0%;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.5s; }
+  :host.description-active {
+    width: 70%; }
+
+.status-controls {
+  position: absolute;
+  right: 0; }
+  .status-controls button {
+    display: inline-block;
+    margin-right: 10px; }
+    .status-controls button.pass {
+      background: #82A934; }
+    .status-controls button.fail {
+      background: #E54A61; }
+
+.advert-description h1 {
+  max-width: 75%; }
+.advert-description-meta {
+  margin-bottom: 20px; }
+  .advert-description-meta > div {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 0.9rem;
+    color: #696969; }
+    .advert-description-meta > div strong {
+      font-weight: 500; }
+
+.error-message {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #838386; }
+
+/*# sourceMappingURL=advert-description.component.css.map */

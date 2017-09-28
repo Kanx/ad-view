@@ -1,0 +1,16 @@
+<div class="advert-description" *ngIf="advert && advert.status !== -1">
+  <div class="status-controls">
+    <button class="pass" (click)="setStatus(advert.id, 1)"><i class="fa fa-thumbs-up"></i></button>
+    <button class="fail" (click)="setStatus(advert.id, 2)"><i class="fa fa-thumbs-down"></i></button>
+  </div>
+  <h1>{{advert.title}}</h1>
+  <div class="advert-description-meta">
+    <div class="ref"><strong>Ref:</strong> {{advert.ref}}</div>
+    <div class="opened"><strong>Posted:</strong> {{advert.posted}}</div>
+    <div class="closes" *ngIf="advert.closes"><strong>Closes:</strong> {{advert.closes}}</div>
+  </div>
+  <div [innerHTML]="advert.description"></div>
+</div>
+<div *ngIf="advert.status === -1" class="error-message">
+  <p>No advert data found for {{advert.ref}}</p>
+</div>

@@ -1,0 +1,60 @@
+$dark-grey: #838386;
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+  form {
+    text-align:right;
+    width: 80%;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+  }
+}
+
+.reference-field {
+  width: 60%;
+  display: inline-block;
+  margin-right:3%;
+  input {
+    font-size:1rem;
+    line-height: 1.5;
+  }
+}
+
+.site-selector {
+  width:20%;
+  display: inline-block;
+  margin-right:3%;
+  select {
+    line-height: 1.5;
+    color: $dark-grey;
+  }
+}
+
+.init-review {
+  width:10%;
+  line-height: 1.5;
+  display: inline-block;
+
+}
+
+
+.app-title {
+  width:15%;
+  font-weight:500;
+  font-size: 1.5rem;
+  display: inline-block;
+  color: $dark-grey;
+  small {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: lighten($dark-grey, 15%);
+  }
+}
+

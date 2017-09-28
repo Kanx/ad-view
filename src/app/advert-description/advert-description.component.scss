@@ -1,0 +1,53 @@
+:host{
+  width: 0%;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.5s;
+  &.description-active {
+    width: 70%;
+
+  }
+}
+
+
+.status-controls {
+  position: absolute;
+  right: 0;
+  button {
+    display: inline-block;
+    margin-right: 10px;
+    &.pass {
+      background: #82A934;
+    }
+    &.fail {
+      background: #E54A61;
+    }
+  }
+}
+
+
+.advert-description {
+  h1 {
+    max-width:75%;
+  }
+  &-meta {
+    margin-bottom:20px;
+    > div {
+      display: inline-block;
+      margin-right:15px;
+      font-size: 0.9rem;
+      color: #696969;
+      strong { font-weight:500 }
+    }
+  }
+}
+
+
+.error-message {
+  margin: 0 auto;
+  text-align:center;
+  font-size:1.2rem;
+  color: #838386;
+
+}

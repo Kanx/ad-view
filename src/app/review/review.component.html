@@ -1,31 +1,19 @@
-<div class="review-controls" *ngIf="advertList.length">
-  <div class="arrow arrow-left">
-    <i class="fa fa-arrow-left"></i>
-  </div>
-  <span>Displaying advert {{ currentAdvertNumber }} of {{advertList.length}}</span>
-  <div class="arrow arrow-right">
-    <i class="fa fa-arrow-right"></i>
-  </div>
-</div>
-<div *ngIf="!currentAdvert()" class="loader">
-  <p>Loading advert data</p>
-  <div class="table">
-    <div class="cell">
-      <div class="gmb-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </div>
+<div class="review-component card">
+  <app-loader *ngIf="!currentAdvert()" [message]="'Loading advert data...'"></app-loader>
+  <app-advert-list (descriptionToggle)="updateDescriptionState($event)"
+                   [adverts]="advertList"
+                   [currentAdvert]="currentAdvertNumber"
+                   [descriptionVisible]="descriptionVisible"
+                   [ngClass]="{'description-active': descriptionVisible}"
+                   [advertsLoaded]="advertsAreLoaded()"
+                   *ngIf="currentAdvert()">
+  </app-advert-list>
+  <app-advert-description (descriptionToggle)="updateDescriptionState($event)"
+                          [advert]="currentAdvert()"
+                          [descriptionVisible]="descriptionVisible"
+                          [ngClass]="{'description-active': descriptionVisible}"
+                          (setAdvertStatus)="setStatus($event)"
+                          *ngIf="currentAdvert()">
 
+  </app-advert-description>
 </div>
-<div *ngIf="currentAdvert()">
-  <div class="status-controls">
-    <button (click)="setPassStatus(true)">Pass</button>
-    <button (click)="setPassStatus(false)">Fail</button>
-  </div>
-  <h1>{{currentAdvert().ref}}: {{currentAdvert().title}}</h1>
-  <div [innerHTML]="currentAdvert().description"></div>
-</div>
-
