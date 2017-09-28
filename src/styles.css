@@ -1,9 +1,11 @@
 html {
-  font-family: "RN House Sans", "RNHouseSans", calibri, arial, sans-serif; }
+  font-family: "RN House Sans", "RNHouseSans", calibri, arial, sans-serif;
+  background: #DCD8D6;
+  height: 100%;
+  width: 100%; }
 
 body {
-  background: #DCD8D6;
-  margin: 10px auto;
+  margin: 0;
   padding: 90px 20px 15px 20px;
   font-size: 1rem;
   font-weight: 100; }

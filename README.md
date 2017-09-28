@@ -1,6 +1,9 @@
-# AdvertReviewer
+# Ad-view
+
+Codebase for front-end framework of [RBS Careers Advert Tool](https://github.com/Kanx/advert-reviewer).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
+
 
 ## Development server
 

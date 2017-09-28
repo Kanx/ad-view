@@ -1,9 +1,11 @@
 import { Injectable, Input } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http, ResponseContentType, RequestOptions} from '@angular/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { environment } from '../environments/environment';
 import { Advert } from './shared/advert.interface';
+import { Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AdvertService {
@@ -45,6 +47,14 @@ export class AdvertService {
     }
   }
 
+  exportExcel(): Observable<any> {
+    return this.http.get(`${environment.apiURL}/adverts/export`, {
+      responseType: ResponseContentType.Blob,
+      params: {data: JSON.stringify(this.getAdverts()) }
+    })
+      .map(res => res.blob());
+  }
+
   getAdverts() {
     return this._advertData.getValue();
   }
@@ -55,7 +65,6 @@ export class AdvertService {
 
   updateAdvert(advert: any, index: number): void {
     const arr = this._advertData.getValue();
-    console.log(arr);
     arr[index] = advert;
     this._advertData.next(arr);
   }

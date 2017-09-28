@@ -1,15 +1,23 @@
 :host {
   width: 0%;
-  display: inline-block;
-  overflow: hidden;
   position: relative;
-  transition: width 0.5s; }
+  transition: all 0.5s;
+  opacity: 0; }
   :host.description-active {
-    width: 70%; }
+    width: 70%;
+    opacity: 1;
+    display: inline-block; }
+    :host.description-active .status-controls {
+      display: block; }
+    :host.description-active .advert-description {
+      width: 100%;
+      height: 100%;
+      overflow: visible; }
 
 .status-controls {
   position: absolute;
-  right: 0; }
+  right: 0;
+  display: none; }
   .status-controls button {
     display: inline-block;
     margin-right: 10px; }
@@ -18,17 +26,21 @@
     .status-controls button.fail {
       background: #E54A61; }
 
-.advert-description h1 {
-  max-width: 75%; }
-.advert-description-meta {
-  margin-bottom: 20px; }
-  .advert-description-meta > div {
-    display: inline-block;
-    margin-right: 15px;
-    font-size: 0.9rem;
-    color: #696969; }
-    .advert-description-meta > div strong {
-      font-weight: 500; }
+.advert-description {
+  width: 0;
+  height: 0;
+  overflow: hidden; }
+  .advert-description h1 {
+    max-width: 75%; }
+  .advert-description-meta {
+    margin-bottom: 20px; }
+    .advert-description-meta > div {
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 0.9rem;
+      color: #696969; }
+      .advert-description-meta > div strong {
+        font-weight: 500; }
 
 .error-message {
   margin: 0 auto;

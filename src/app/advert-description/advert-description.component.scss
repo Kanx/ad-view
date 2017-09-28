@@ -1,12 +1,20 @@
 :host{
   width: 0%;
-  display: inline-block;
-  overflow: hidden;
   position: relative;
-  transition: width 0.5s;
+  transition: all 0.5s;
+  opacity: 0;
   &.description-active {
+    .status-controls {
+      display:block;
+    }
+    .advert-description{
+      width: 100%;
+      height:100%;
+      overflow:visible;
+    }
     width: 70%;
-
+    opacity:1;
+    display: inline-block;
   }
 }
 
@@ -14,6 +22,7 @@
 .status-controls {
   position: absolute;
   right: 0;
+  display:none;
   button {
     display: inline-block;
     margin-right: 10px;
@@ -28,6 +37,10 @@
 
 
 .advert-description {
+
+  width: 0;
+  height:0;
+  overflow:hidden;
   h1 {
     max-width:75%;
   }
