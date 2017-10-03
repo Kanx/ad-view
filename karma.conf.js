@@ -3,7 +3,7 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
+    basePath: '../../../Downloads/ad-view-master),
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
       require('karma-jasmine'),
